@@ -1,0 +1,7 @@
+metas:
+  site: Meta Ring
+  title: Meta Ring
+  description: A webring for personal sites with meta pages.
+  icon: /icon.png
+  lang: en
+  generator: true
