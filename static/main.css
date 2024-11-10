@@ -8,6 +8,7 @@
 body {
   font-family: 'iA Writer Duo', var(--mono-font);
   background-color: var(--bg);
+  color: black;
 }
 
 main {
@@ -44,6 +45,14 @@ blockquote {
   margin-left: 0;
   padding-left: 1.25rem;
   opacity: .82;
+}
+
+a {
+  color: blue;
+}
+
+a:visited {
+  color: purple;
 }
 
 :is(h1, h2, h3, h4, h5, h6) a {
