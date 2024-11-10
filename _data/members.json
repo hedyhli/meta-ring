@@ -1,0 +1,14 @@
+[
+    {
+        "name": "F1",
+        "url": "https://example.org/?1"
+    },
+    {
+        "name": "F2",
+        "url": "https://example.org/?2"
+    },
+    {
+        "name": "F3",
+        "url": "https://example.org/?3"
+    }
+]
