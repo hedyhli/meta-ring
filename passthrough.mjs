@@ -1,96 +1,136 @@
-// From the default fence rule
+// `:::` markers to disable markdown-it parsing
+// Based on: https://github.com/markdown-it/markdown-it-container
+//
+export default function container_plugin (md, options) {
 
-const delim = ':'.charCodeAt().toString(16)
-
-export default function passthrough (state, startLine, endLine, silent) {
-  let pos = state.bMarks[startLine] + state.tShift[startLine]
-  let max = state.eMarks[startLine]
-
-  // if it's indented more than 3 spaces, it should be a code block
-  if (state.sCount[startLine] - state.blkIndent >= 4) { return false }
-
-  if (pos + 3 > max) { return false }
-
-  const marker = state.src.charCodeAt(pos)
-
-  if (marker !== 0x7E/* ~ */ && marker !== delim /* ` */) {
-    return false
+  function renderDefault (tokens, idx, _options, env, slf) {
+    return tokens[idx].content
   }
 
-  // scan marker length
-  let mem = pos
-  pos = state.skipChars(pos, marker)
+  options = options || {}
 
-  let len = pos - mem
+  const min_markers = 3
+  const marker_str  = options.marker || ':'
+  const marker_char = marker_str.charCodeAt(0)
+  const marker_len  = marker_str.length
+  const validate    = options.validate || (() => (true))
+  const render      = options.render || renderDefault
 
-  if (len < 3) { return false }
+  function container (state, startLine, endLine, silent) {
+    let pos
+    let auto_closed = false
+    let start = state.bMarks[startLine] + state.tShift[startLine]
+    let max = state.eMarks[startLine]
 
-  const markup = state.src.slice(mem, pos)
-  const params = state.src.slice(pos, max)
+    // Check out the first character quickly,
+    // this should filter out most of non-containers
+    //
+    if (marker_char !== state.src.charCodeAt(start)) { return false }
 
-  if (marker === delim) {
-    if (params.indexOf(String.fromCharCode(marker)) >= 0) {
-      return false
+    // Check out the rest of the marker string
+    //
+    for (pos = start + 1; pos <= max; pos++) {
+      if (marker_str[(pos - start) % marker_len] !== state.src[pos]) {
+        break
+      }
     }
-  }
 
-  // Since start is found, we can report success here in validation mode
-  if (silent) { return true }
+    const marker_count = Math.floor((pos - start) / marker_len)
+    if (marker_count < min_markers) { return false }
+    pos -= (pos - start) % marker_len
 
-  // search end of block
-  let nextLine = startLine
-  let haveEndMarker = false
+    const markup = state.src.slice(start, pos)
+    const params = state.src.slice(pos, max)
+    if (!validate(params, markup)) { return false }
 
-  for (;;) {
-    nextLine++
-    if (nextLine >= endLine) {
-      // unclosed block should be autoclosed by end of document.
-      // also block seems to be autoclosed by end of parent
+    // Since start is found, we can report success here in validation mode
+    //
+    if (silent) { return true }
+
+    // Search for the end of the block
+    //
+    let nextLine = startLine
+
+    for (;;) {
+      nextLine++
+      if (nextLine >= endLine) {
+        // unclosed block should be autoclosed by end of document.
+        // also block seems to be autoclosed by end of parent
+        break
+      }
+
+      start = state.bMarks[nextLine] + state.tShift[nextLine]
+      max = state.eMarks[nextLine]
+
+      if (start < max && state.sCount[nextLine] < state.blkIndent) {
+        // non-empty line with negative indent should stop the list:
+        // - ```
+        //  test
+        break
+      }
+
+      if (marker_char !== state.src.charCodeAt(start)) { continue }
+
+      if (state.sCount[nextLine] - state.blkIndent >= 4) {
+        // closing fence should be indented less than 4 spaces
+        continue
+      }
+
+      for (pos = start + 1; pos <= max; pos++) {
+        if (marker_str[(pos - start) % marker_len] !== state.src[pos]) {
+          break
+        }
+      }
+
+      // closing code fence must be at least as long as the opening one
+      if (Math.floor((pos - start) / marker_len) < marker_count) { continue }
+
+      // make sure tail has spaces only
+      pos -= (pos - start) % marker_len
+      pos = state.skipSpaces(pos)
+
+      if (pos < max) { continue }
+
+      // found!
+      auto_closed = true
       break
     }
 
-    pos = mem = state.bMarks[nextLine] + state.tShift[nextLine]
-    max = state.eMarks[nextLine]
+    const old_parent = state.parentType
+    const old_line_max = state.lineMax
+    state.parentType = 'container'
 
-    if (pos < max && state.sCount[nextLine] < state.blkIndent) {
-      // non-empty line with negative indent should stop the list:
-      // - ```
-      //  test
-      break
-    }
+    // this will prevent lazy continuations from ever going past our end marker
+    state.lineMax = nextLine
 
-    if (state.src.charCodeAt(pos) !== marker) { continue }
+    // const token_o  = state.push('container_open', 'div', 1)
+    // token_o.markup = markup
+    // token_o.block  = true
+    // token_o.info   = params
+    // token_o.map    = [startLine, nextLine]
 
-    if (state.sCount[nextLine] - state.blkIndent >= 4) {
-      // closing fence should be indented less than 4 spaces
-      continue
-    }
+    // state.md.block.tokenize(state, startLine + 1, nextLine)
+    const token_i   = state.push('container_content', 'div', 0)
+    token_i.info    = params
+    token_i.content = state.getLines(startLine + 1, nextLine, state.sCount[startLine], true)
+    token_i.markup  = markup
+    token_i.map     = [startLine, state.line]
 
-    pos = state.skipChars(pos, marker)
+    // const token_c  = state.push('container_close', 'div', -1)
+    // token_c.markup = state.src.slice(start, pos)
+    // token_c.block  = true
 
-    // closing code fence must be at least as long as the opening one
-    if (pos - mem < len) { continue }
+    state.parentType = old_parent
+    state.lineMax = old_line_max
+    state.line = nextLine + (auto_closed ? 1 : 0)
 
-    // make sure tail has spaces only
-    pos = state.skipSpaces(pos)
-
-    if (pos < max) { continue }
-
-    haveEndMarker = true
-    // found!
-    break
+    return true
   }
 
-  // If a fence has heading spaces, they should be removed from its inner block
-  len = state.sCount[startLine]
-
-  state.line = nextLine + (haveEndMarker ? 1 : 0)
-
-  const token   = state.push('passthrough', 'code', 0)
-  token.info    = params
-  token.content = state.getLines(startLine + 1, nextLine, len, true)
-  token.markup  = markup
-  token.map     = [startLine, state.line]
-
-  return true
-}
+  md.block.ruler.before('fence', 'container', container, {
+    alt: ['paragraph', 'reference', 'blockquote', 'list']
+  })
+  // md.renderer.rules['container_open'] = render
+  md.renderer.rules['container_content'] = render
+  // md.renderer.rules['container_close'] = render
+};

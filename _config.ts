@@ -14,6 +14,6 @@ site.use(check_urls());
 site.use(metas());
 site.use(sitemap());
 
-site.hooks.addMarkdownItRule("passthrough", passthrough);
+site.hooks.addMarkdownItPlugin(passthrough, {});
 
 export default site;

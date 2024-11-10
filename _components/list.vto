@@ -1,7 +1,9 @@
+:::
 <ul>
 {{- for item of directory }}
   {{ if !members_only || item.member -}}
     <li><a href="{{ item.url }}">{{ item.name }}</a></li>
   {{- /if }}
-{{ /for -}}
+{{- /for }}
 </ul>
+:::
