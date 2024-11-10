@@ -148,6 +148,8 @@ And it looks like this...
 
 ## Webring members
 
+It's looking a little quiet here...
+
 {{ comp.list() }}
 
 ## Updates
