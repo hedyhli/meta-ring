@@ -7,8 +7,8 @@ templateEngine: [vento, md]
 
 *Welcome to the Meta Ring!*
 
-This is webring for people who enjoys tinkering with their personal websites and
-writes about it in "meta" pages, like a colophon.
+This is a webring for people who enjoys tinkering with their personal websites
+and writes about it in "meta" pages, like a colophon.
 
 Do you have a `/meta` page or even a full-blown changelog? Consider adding
 one!
