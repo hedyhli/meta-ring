@@ -1,0 +1,91 @@
+:root {
+  --border: black;
+  --bg: aliceblue;
+  --border-radius: 5px;
+  --mono-font: "IBM Plex Mono", "Fira Code", Hack, Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+body {
+  font-family: 'iA Writer Duo', var(--mono-font);
+  background-color: var(--bg);
+}
+
+main {
+  max-width: 40rem;
+  margin: auto;
+}
+
+pre, code, kbd {
+  font-family: var(--mono-font);
+  background-color: white;
+  font-size: 98%;
+}
+
+pre {
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: .8rem 1rem;
+	max-width: 100%;
+	overflow: auto;
+}
+
+pre code {
+  border: none;
+}
+
+code, kbd {
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 0 .2rem;
+}
+
+blockquote {
+  border-left: 2px solid var(--border);
+  margin-left: 0;
+  padding-left: 1.25rem;
+  opacity: .82;
+}
+
+:is(h1, h2, h3, h4, h5, h6) a {
+  text-decoration: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6) a:visited {
+  color: blue;
+}
+
+h1, h2 {
+  margin-top: 3rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+details {
+	padding: .6rem 1rem;
+	border: 2px solid var(--border);
+	border-radius: var(--border-radius);
+	margin-bottom: 1rem;
+  background-color: white;
+}
+
+summary {
+	cursor: pointer;
+}
+
+details[open] {
+	padding-bottom: .75rem;
+}
+
+details[open] summary {
+	margin-bottom: .5rem;
+}
+
+details[open]>*:last-child {
+	margin-bottom: 0;
+}

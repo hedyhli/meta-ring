@@ -37,4 +37,6 @@ site.use(toc({ anchor(slug: string, state: any, i: number) {
 
 site.hooks.addMarkdownItPlugin(passthrough, {});
 
+site.copy("static", ".");
+
 export default site;
