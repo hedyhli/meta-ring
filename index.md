@@ -92,8 +92,9 @@ requirements are met.
 <ol>
   <li>
 
-    Your site should not contain inappropriate, illegal, or immoral content,
-    including ableist, highly NSFW, pornographic, or similar material.
+    Your site should not contain highly inappropriate, illegal, or immoral
+    content, including pornographic, excessively NSFW, or similar material.
+    Content warnings must be clearly visible.
   </li>
 
   <li>
