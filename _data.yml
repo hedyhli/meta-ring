@@ -2,7 +2,7 @@ layout: layout.vto
 metas:
   site: Meta Ring
   title: Meta Ring
-  description: A webring for personal sites with meta pages.
+  description: A webring for personal websites.
   icon: /icon.png
   lang: en
   generator: true
