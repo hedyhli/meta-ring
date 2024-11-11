@@ -3,15 +3,5 @@
     "name": "~hedy",
     "colophon": "https://home.hedy.dev/meta/",
     "url": "https://home.hedy.dev/"
-  },
-  {
-    "name": "test 1",
-    "colophon": "https://example.org/",
-    "url": "https://meta-ring.hedy.dev/test/"
-  },
-  {
-    "name": "test 2",
-    "colophon": "https://example.org/",
-    "url": "https://meta-ring.hedy.dev/"
   }
 ]
