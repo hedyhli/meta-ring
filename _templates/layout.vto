@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
     <meta name="theme-color" content="aliceblue" />
+    <meta name="twitter:image" content="{{ '/icon-512.png' |> url(true) }}" />
+    <meta name="og:image" content="{{ '/icon-512.png' |> url(true) }}" />
+    <meta name="og:image:type" content="image/png" />
+    <meta name="og:image:height" content="512" />
+    <meta name="og:image:width" content="512" />
 
     <title>{{ title }}</title>
+    <link rel="canonical" href="{{ url }}" />
     <link rel="icon" sizes="any" href="/icon.svg" type="image/svg+xml" />
     <link rel="icon" sizes="192x192" href="/icon-192.png" type="image/png" />
-    <link rel="stylesheet" href="/main.css" />
-    <link rel="stylesheet" href="/fonts.css" />
+    <link rel="apple-touch-icon" href="{{ '/icon-512.png' |> url(true) }}" />
+    <link rel="stylesheet" href="/main.css{{ cache_bust }}" />
+    <link rel="stylesheet" href="/fonts.css{{ cache_bust }}" />
   </head>
   <body>
     <main>

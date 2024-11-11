@@ -12,6 +12,8 @@ const site = lume({
     includes: "_templates",
 });
 
+site.data("cache_bust", "?v=1");
+
 site.use(check_urls());
 site.use(metas());
 site.use(sitemap());
