@@ -1,6 +1,37 @@
 [build]
-  publish = "_site"
-  command = """
-  curl -fsSL https://deno.land/install.sh | sh && \
-  /opt/buildhome/.deno/bin/deno task build \
+publish = "_site"
+command = """
+curl -fsSL https://deno.land/install.sh | sh && \
+/opt/buildhome/.deno/bin/deno task build \
 """
+functions = ".netlify/functions"
+
+[functions]
+directory = "functions"
+included_files = ["_data/members.json"]
+
+[[headers]]
+for = "/*"
+[headers.values]
+X-Frame-Options = "DENY"
+X-XSS-Protection = "1; mode=block"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy= "no-referrer-when-downgrade"
+
+[[redirects]]
+from = "/next"
+to = "/.netlify/functions/next"
+status = 301
+force = true
+
+[[redirects]]
+from = "/previous"
+to = "/.netlify/functions/prev"
+status = 301
+force = true
+
+[[redirects]]
+from = "/random"
+to = "/.netlify/functions/random"
+status = 301
+force = true

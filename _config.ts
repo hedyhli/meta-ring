@@ -39,5 +39,6 @@ site.hooks.addMarkdownItPlugin(passthrough, {});
 
 site.copy("static", ".");
 site.ignore("README.md");
+site.ignore("functions");
 
 export default site;
