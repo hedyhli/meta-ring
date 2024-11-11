@@ -6,7 +6,7 @@ members.sort((a, b) => {
 })
 
 export const redirect = site => {
-    const statusMessage = `redirecting to: ${site.url}`
+    const statusMessage = `Redirecting to: ${site.url}`
     console.log(statusMessage)
 
     return {

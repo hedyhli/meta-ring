@@ -1,5 +1,6 @@
 :root {
   --border: black;
+  --border-width: 1px;
   --bg: #def4fd;
   --border-radius: 5px;
   --mono-font: "IBM Plex Mono", "Fira Code", Hack, Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -10,6 +11,7 @@ body {
   font-family: 'iA Writer Duo', var(--mono-font);
   background-color: var(--bg);
   color: black;
+  line-height: 1.45; /* This magic✨number is determined by a pair of human eyes. */
 }
 
 main {
@@ -25,7 +27,7 @@ pre, code, kbd {
 }
 
 pre {
-  border: 1px solid var(--border);
+  border: var(--border-width) solid var(--border);
   border-radius: var(--border-radius);
   padding: var(--box-padding);
 	max-width: 100%;
@@ -43,7 +45,7 @@ code, kbd {
 }
 
 blockquote {
-  border-left: 2px solid var(--border);
+  border-left: var(--border-width) solid var(--border);
   margin-left: 0;
   padding-left: 1.25rem;
   opacity: .82;
@@ -85,6 +87,18 @@ a:visited:hover {
   background-color: purple;
 }
 
+a:hover img, a:hover:has(img) {
+  border: none;
+  outline: none;
+  background-color: var(--bg);
+  text-decoration: none;
+  color: white;
+}
+
+a {
+  outline: none;
+}
+
 details {
 	padding: .6rem 1rem;
 	border: 2px solid var(--border);
@@ -112,7 +126,7 @@ details[open]>*:last-child {
 ul.members {
   padding-left: 0;
   padding: var(--box-padding);
-	border: 2px solid var(--border);
+	border: var(--border-width) solid var(--border);
 	border-radius: var(--border-radius);
 	background-color: white;
 }

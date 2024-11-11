@@ -44,5 +44,5 @@ post](https://home.hedy.dev/posts/meta-pages) and [Seirdy's meta
 page](https://seirdy.one/meta/).
 
 A huge thank you to [Eric Bailey](https://ericwbailey.website/) and the [a11y
-webring](https://a11y-webring.club), from which this project built scratch using
-Lume and Deno instead of 11ty and npm.
+webring](https://a11y-webring.club), from which this project was built from
+scratch using Lume and Deno instead of 11ty and npm.
