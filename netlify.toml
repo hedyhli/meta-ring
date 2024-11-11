@@ -26,7 +26,7 @@ force = true
 
 [[redirects]]
 from = "/previous"
-to = "/.netlify/functions/prev"
+to = "/.netlify/functions/previous"
 status = 301
 force = true
 
