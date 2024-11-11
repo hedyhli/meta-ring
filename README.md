@@ -24,6 +24,11 @@ webring. Just submit a PR for the `_data/members.json` file.
 
 ### Build
 
+The entire home page is built from `index.md` with components as [Vento
+templates](https://vento.js.org/) in the `_components` directory. A [custom
+markdown-it plugin](passthrough.js) is used to prevent rendering of markdown
+within these HTML components.
+
 ```sh
 # Live reload
 deno task lume --serve
@@ -38,7 +43,6 @@ The idea for this webring came from [this blog
 post](https://home.hedy.dev/posts/meta-pages) and [Seirdy's meta
 page](https://seirdy.one/meta/).
 
-This code for this project is forked from the [a11y
-webring](https://a11y-webring.club) made by [Eric
-Bailey](https://ericwbailey.website/), with re-implementation from scratch using
+A huge thank you to [Eric Bailey](https://ericwbailey.website/) and the [a11y
+webring](https://a11y-webring.club), from which this project built scratch using
 Lume and Deno instead of 11ty and npm.
