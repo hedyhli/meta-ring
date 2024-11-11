@@ -1,7 +1,10 @@
 :::
-<ul>
+<ul class="members">
 {{- for item of members }}
-  <li><a href="{{ item.url }}">{{ item.name }}</a></li>
+  <li>
+    <p><strong><a href="{{ item.url }}">{{ item.name }}</a></strong></p>
+    <p><a href="{{ item.colophon }}">{{ item.colophon }}</a></p>
+  </li>
 {{- /for }}
 </ul>
 :::

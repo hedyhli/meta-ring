@@ -1,14 +1,17 @@
 [
   {
+    "name": "~hedy",
+    "colophon": "https://home.hedy.dev/meta/",
+    "url": "https://home.hedy.dev/"
+  },
+  {
     "name": "F1",
+    "colophon": "https://example.org/",
     "url": "https://example.org/?1"
   },
   {
     "name": "F2",
+    "colophon": "https://example.org/",
     "url": "https://example.org/?2"
-  },
-  {
-    "name": "F3",
-    "url": "https://example.org/?3"
   }
 ]

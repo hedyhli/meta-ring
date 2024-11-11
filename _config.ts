@@ -38,5 +38,6 @@ site.use(toc({ anchor(slug: string, state: any, i: number) {
 site.hooks.addMarkdownItPlugin(passthrough, {});
 
 site.copy("static", ".");
+site.ignore("README.md");
 
 export default site;

@@ -40,16 +40,16 @@ requirements are met:
 
     Write about it, or link to those blog posts where you wrote about your
     site's updates!
-    </details>
 
-    Check out some examples below in the [member list](#webring-members), or in
+    Check out some examples below in the [member list](#members), or in
     [this blog post](https://home.hedy.dev/posts/meta-pages/#examples).
+    </details>
   </li>
   <li>
 
     The meta page or the page with the colophon section in question should be
-    discoverable -- it should be linked where someone visiting your site can
-    find.
+    discoverable -- it should be linked where someone visiting your site from
+    this webring can find.
   </li>
   <li>
 
@@ -81,7 +81,7 @@ requirements are met:
 
   <li>
 
-    This webring focuses on **personal websites**. This means product and
+    This webring focuses on **personal websites**. This means organization and
     project home pages will not be accepted.
 
     <details><summary>Why?</summary>
@@ -102,9 +102,8 @@ these steps to add yourself to the webring:
 
 1. Ensure your submission follows the [rules](#rules) listed above.
 
-1. Update your site to include links to this webring, and the links for the
-   previous, next, and optionally random site. See the [webring
-   links](#webring-code) below.
+1. List the webring on your website. See [webring code](#webring-code) below for
+   an example.
 
 1. Submit a PR to the [GitHub
    repo](https://github.com/hedyhli/meta-ring/blob/main/_data/members.json) for
@@ -113,14 +112,16 @@ these steps to add yourself to the webring:
 ```json
   {
     "name": "Your Name (or your site's name)",
-    "url": "<your personal site>"
+    "url": "https://website.example/",
+    "colophon": "https://website.example/meta"
   }
 ```
 
 ### Webring code
 
-The link to the webring home page, and the previous and next links should be
-added to your site before submitting your PR.
+The link to this page, and the **previous** and **next** links should be added
+to your site before submitting your PR. You can omit the random link if you
+like.
 
 Here's an example:
 
@@ -136,7 +137,7 @@ Here's an example:
 And it looks like this...
 
 :::
-<div style="border: 1px solid var(--border); padding: 1rem 1.5rem; border-radius: var(--border-radius); background-color: white;">
+<div style="border: 1px solid var(--border); padding: 1rem 0; border-radius: var(--border-radius); background-color: white; font-size: 95%;">
 <p style="text-align: center;">
   This site is part of the <a href="https://meta-ring.hedy.dev/">Meta Ring</a>:<br/>
   [<a href="https://meta-ring.hedy.dev/previous">← Previous</a>]
@@ -146,12 +147,14 @@ And it looks like this...
 </div>
 :::
 
-## Webring members
+## Members
 
 It's looking a little quiet here...
 
 {{ comp.list() }}
 
-## Updates
+<br />
 
-{{ comp.updates() }}
+---
+
+<small>This website is made with 💜 by [~hedy](https://home.hedy.dev/) with [Lume](https://lume.land/) and hand-crafted CSS.<br />View the source [here](https://github.com/hedyhli/meta-ring).</small>

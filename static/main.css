@@ -3,6 +3,7 @@
   --bg: #def4fd;
   --border-radius: 5px;
   --mono-font: "IBM Plex Mono", "Fira Code", Hack, Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --box-padding: .8rem 1rem;
 }
 
 body {
@@ -26,7 +27,7 @@ pre, code, kbd {
 pre {
   border: 1px solid var(--border);
   border-radius: var(--border-radius);
-  padding: .8rem 1rem;
+  padding: var(--box-padding);
 	max-width: 100%;
 	overflow: auto;
 }
@@ -66,14 +67,22 @@ a:visited {
 
 h1, h2 {
   margin-top: 3rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: .25rem;
 }
 
 h3 {
-  margin-top: 1.5rem;
+  margin-top: 1.75rem;
 }
 
 a:hover {
   text-decoration: none;
+  background-color: blue;
+  color: white;
+}
+
+a:visited:hover {
+  background-color: purple;
 }
 
 details {
@@ -98,4 +107,24 @@ details[open] summary {
 
 details[open]>*:last-child {
 	margin-bottom: 0;
+}
+
+ul.members {
+  padding-left: 0;
+  padding: var(--box-padding);
+	border: 2px solid var(--border);
+	border-radius: var(--border-radius);
+	background-color: white;
+}
+
+ul.members li {
+	list-style: none;
+}
+
+ul.members li strong {
+  font-size: 1.2rem;
+}
+
+ul.members li:not(:first-child) {
+  border-top: 1px solid var(--border);
 }
