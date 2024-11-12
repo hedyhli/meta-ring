@@ -8,7 +8,7 @@ templateEngine: [vento, md]
 *Welcome to the Meta Ring!*
 
 This is a [webring](https://en.wikipedia.org/wiki/Webring) for anyone who enjoys
-tinkering and experimenting with our personal websites and writes about its
+tinkering and experimenting with their personal websites and writes about its
 design and the technology in "meta" pages, or a colophon.
 
 ## What's this for?

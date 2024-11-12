@@ -11,7 +11,7 @@ body {
   font-family: 'iA Writer Duo', var(--mono-font);
   background-color: var(--bg);
   color: black;
-  line-height: 1.45; /* This magic✨number is determined by a pair of human eyes. */
+  line-height: 1.5; /* This magic✨number is determined by a pair of human eyes. */
 }
 
 main {
