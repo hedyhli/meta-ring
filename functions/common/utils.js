@@ -1,10 +1,6 @@
 let path = require("path");
 let members = require(path.resolve("./_data/members.json"));
 
-members.sort((a, b) => {
-    return a.date > b.date ? 1 : -1;
-})
-
 export const redirect = site => {
     const statusMessage = `Redirecting to: ${site.url}`
     console.log(statusMessage)
