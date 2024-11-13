@@ -166,8 +166,6 @@ Note that these links do not execute JavaScript client-side.
 
 ## Members
 
-It's looking a little quiet in here...
-
 {{ comp.list() }}
 
 <br />
