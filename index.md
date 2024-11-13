@@ -126,10 +126,13 @@ these steps to add yourself to the webring:
 ```json
   {
     "name": "Your Name (or your site's name)",
-    "url": "https://website.example/",
-    "colophon": "https://website.example/meta"
+    "colophon": "https://website.example/meta",
+    "url": "https://website.example/"
   }
 ```
+
+Patches to [this mailing list](https://lists.sr.ht/~hedy/inbox) is also
+accepted, if you prefer.
 
 ### Webring code
 
