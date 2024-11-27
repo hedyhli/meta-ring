@@ -3,13 +3,6 @@
 This is a webring for personal websites. Learn more on [the webring home
 page](https://meta-ring.hedy.dev/).
 
-## How do I join?
-
-First read the [guidelines and requirements on the
-website](https://meta-ring.hedy.dev/), make sure you've added the
-[webring links](https://meta-ring.hedy.dev/#webring-code) to your website, then
-submit a PR to update the [_data/members.json](_data/members.json) file.
-
 ## Development
 
 This site is made with [Lume](https://lume.land/) and vanilla CSS. The redirect
