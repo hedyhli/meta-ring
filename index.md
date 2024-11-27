@@ -131,7 +131,7 @@ these steps to add yourself to the webring:
   }
 ```
 
-Patches to [this mailing list](https://lists.sr.ht/~hedy/inbox) is also
+Patches to [this mailing list](https://lists.sr.ht/~hedy/inbox) are also
 accepted, if you prefer.
 
 ### Webring code
