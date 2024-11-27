@@ -147,28 +147,34 @@ ul.members li:not(:first-child) {
 }
 
 input, textarea {
-  width: -moz-available;
-  width: -webkit-fill-available;
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 
   font-size: inherit;
   font-family: inherit;
+
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  width: calc(100% - 1rem);
+  max-width: calc(100% - 1rem);
+
   border-radius: var(--border-radius);
   box-shadow: none;
-  max-width: 100%;
-  display: inline-block;
 
   color: var(--text);
   background-color: white;
   border: 1px solid var(--border);
+
+  margin-bottom: 1rem;
+}
+
+label, input, textarea {
+  display: block;
 }
 
 textarea {
   min-height: 5rem;
+  resize: vertical;
 }
 
 button[type="submit"] {
