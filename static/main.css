@@ -173,7 +173,7 @@ label, input, textarea {
 }
 
 textarea {
-  min-height: 5rem;
+  min-height: 3.5rem;
   resize: vertical;
 }
 
