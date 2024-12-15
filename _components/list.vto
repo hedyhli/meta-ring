@@ -3,7 +3,9 @@
 {{- for item of members }}
   <li>
     <p><strong><a href="{{ item.url }}">{{ item.name }}</a></strong></p>
-    <p><a href="{{ item.colophon }}">{{ item.colophon }}</a></p>
+    <p><a href="{{ item.colophon }}">
+      {{ item.colophon.replace('https://', '', 1).replace('http://', '', 1) }}
+    </a></p>
   </li>
 {{- /for }}
 </ul>
