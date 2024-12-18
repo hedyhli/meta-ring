@@ -132,6 +132,7 @@ ul.members {
 	border: var(--border-width) solid var(--border);
 	border-radius: var(--border-radius);
 	background-color: white;
+	overflow-x: auto;
 }
 
 ul.members li {
