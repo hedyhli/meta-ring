@@ -38,5 +38,10 @@
     "name": "Ken",
     "colophon": "https://ken.fyi/meta",
     "url": "https://ken.fyi/"
+  },
+  {
+    "name": "Lethe",
+    "colophon": "https://oubliette.nu/repository",
+    "url": "https://oubliette.nu"
   }
 ]
