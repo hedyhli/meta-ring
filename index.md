@@ -94,3 +94,18 @@ If you feel this describes you, visit [this page](/join/) to join the webring.
 ## Members
 
 {{ comp.list() }}
+
+## Prior art
+
+Meta pages and inspiration for this webring initially came from [this blog
+post](https://home.hedy.dev/posts/meta-pages/); which in turn was inspired by
+[Seirdy's site](https://seirdy.one/meta/).
+
+However, neither `/colophon` pages nor even the idea of a dedicated page as a
+colophon are new. Read more about it and its history on [the IndieWeb
+wiki](https://indieweb.org/colophon).
+
+Both `/meta` and `/colophon` can be categorized as "slash pages", including more
+common ones like `/about`, `/now`, and `/uses`. Check out the awesome
+[slashpages.net](https://slashpages.net) made by [Robb
+Knight](https://rknight.me/blog/slash-pages/).
