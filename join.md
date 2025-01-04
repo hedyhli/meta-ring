@@ -36,7 +36,7 @@ You can omit the [random](/random) link if you like.
 Here's an example:
 
 :::
-<div style="border: var(--border-width) solid var(--border); padding: 1rem 0; border-radius: var(--border-radius); background-color: white; font-size: 95%;">
+<div style="border: var(--border-width) solid var(--border); padding: 1rem 0; border-radius: var(--border-radius); background-color: var(--code-bg); font-size: 95%;">
 <p style="text-align: center;">
   This site is part of the <a href="https://meta-ring.hedy.dev/">Meta Ring</a>:<br/>
   [<a href="https://meta-ring.hedy.dev/previous">← Previous</a>]
