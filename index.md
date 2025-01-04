@@ -9,7 +9,7 @@ templateEngine: [vento, md]
 
 This is a [webring](https://en.wikipedia.org/wiki/Webring) for anyone who enjoys
 tinkering and experimenting with their personal websites and writes about its
-design and the technology in "meta" pages, or a colophon.
+design and the technology in "meta" pages, or a *colophon*.
 
 ## What's this for?
 

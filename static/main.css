@@ -1,6 +1,6 @@
 :root {
   --border: light-dark(black, #98a1b6);
-  --border-width: 1px;
+  --border-width: 2px;
   --bg: light-dark(#dff5fd, #363a40);
   --border-radius: 5px;
   --mono-font: "IBM Plex Mono", "Fira Code", Hack, Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
@@ -8,7 +8,6 @@
   --text: light-dark(black, white);
   --links: light-dark(#3d68ff, #87caff);
   --links-visited: light-dark(#726db4, #d4d1ff);
-  --accent-light: light-dark(#c0d0df, #c0d0df);
   --code-bg: light-dark(white, black);
   --accent-bg: light-dark(white, #3d4149);
 }
@@ -37,7 +36,7 @@ main {
 
 hr {
   border: none;
-  border-top: 1px solid var(--accent-light);
+  border-top: var(--border-width) solid var(--text);
 }
 
 pre, code, kbd {
@@ -59,7 +58,7 @@ pre code {
 }
 
 code, kbd {
-  border: 1px solid var(--border);
+  border: var(--border-width) solid var(--border);
   border-radius: var(--border-radius);
   padding: 0 .2rem;
 }
@@ -68,7 +67,6 @@ blockquote {
   border-left: var(--border-width) solid var(--border);
   margin-left: 0;
   padding-left: 1.25rem;
-  opacity: .82;
 }
 
 a {
@@ -96,7 +94,7 @@ a:visited {
 
 h1, h2 {
   margin-top: 3rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: var(--border-width) solid var(--border);
   padding-bottom: .25rem;
 }
 
@@ -109,7 +107,7 @@ a:hover,
 :is(h1, h2, h3, h4, h5, h6) a:visited:hover {
   text-decoration: none;
   background-color: var(--links);
-  color: var(--text);
+  color: light-dark(white, black);
 }
 
 a:visited:hover {
@@ -131,7 +129,7 @@ a {
 
 details {
 	padding: .6rem 1rem;
-	border: 2px solid var(--border);
+	border: var(--border-width) solid var(--border);
 	border-radius: var(--border-radius);
 	margin-bottom: 1rem;
   background-color: var(--accent-bg);
@@ -191,7 +189,7 @@ input, textarea {
 
   color: var(--text);
   background-color: var(--accent-bg);
-  border: 1px solid var(--border);
+  border: var(--border-width) solid var(--border);
 
   margin-bottom: 1rem;
 }
@@ -212,7 +210,7 @@ input:focus, textarea:focus {
 button[type="submit"] {
   font-family: inherit;
   font-size: inherit;
-  border: 1px solid var(--border);
+  border: var(--border-width) solid var(--border);
   border-radius: var(--border-radius);
   background-color: var(--accent-bg);
   color: var(--text);
