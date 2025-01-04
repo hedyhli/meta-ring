@@ -1,0 +1,25 @@
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        required: true
+        type: string
+      colophon:
+        required: true
+        type: string
+      url:
+        required: true
+        type: string
+
+jobs:
+  append-new-member:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run append.sh
+        run: ./append.sh "${{ inputs.name }}" "${{ inputs.colophon }}" "${{ inputs.url }}"
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Add ${{ inputs.name }}"
+          branch: ${{ github.head_ref }}
+          skip_dirty_check: false
