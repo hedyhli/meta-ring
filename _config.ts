@@ -3,7 +3,7 @@ import lume from "lume/mod.ts";
 import check_urls from "lume/plugins/check_urls.ts";
 import metas from "lume/plugins/metas.ts";
 import sitemap from "lume/plugins/sitemap.ts";
-import toc, { linkInsideHeader } from "https://deno.land/x/lume_markdown_plugins@v0.7.1/toc.ts";
+import toc  from "https://deno.land/x/lume_markdown_plugins@v0.7.1/toc.ts";
 
 import passthrough from "./passthrough.mjs";
 
@@ -12,7 +12,7 @@ const site = lume({
     includes: "_templates",
 });
 
-site.data("cache_bust", "?v=1");
+site.data("cache_bust", "?v=2");
 
 site.use(check_urls());
 site.use(metas());
