@@ -113,5 +113,10 @@
     "name": "Amir",
     "colophon": "https://ajgl.blog/meta",
     "url": "https://ajgl.blog/"
+  },
+  {
+    "name": "bitbyte",
+    "colophon": "https://bitbyte.blog/meta/",
+    "url": "https://bitbyte.blog/"
   }
 ]
