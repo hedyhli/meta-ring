@@ -1,7 +1,7 @@
 [build]
 publish = "_site"
 command = """
-curl -fsSL https://deno.land/install.sh | sh && \
+curl -fsSL https://deno.land/install.sh | sh -s v2.0.5 && \
 /opt/buildhome/.deno/bin/deno task build \
 """
 functions = ".netlify/functions"
